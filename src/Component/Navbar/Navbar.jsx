@@ -7,9 +7,9 @@ const Navbar = () => {
     <div className="nav_div">
       <nav className="navigation">
         <div className="hamburgerNameDiv">
-          <i class="fa-solid fa-bars nav_icon"></i>
+          <i className="fa-solid fa-bars nav_icon"></i>
           <h2 className="textForPrimaryColor">
-            Sky<span className="">Video</span>
+            SkyVideo
           </h2>
         </div>
         <div className="search_icon">
@@ -30,7 +30,7 @@ const Navbar = () => {
             login
           </button>
           {/* will use this icon later */}
-            {/* <i class="fa-solid fa-user nav_icon"></i> */}
+            {/* <i className="fa-solid fa-user nav_icon"></i> */}
         </aside>
       </nav>
     </div>

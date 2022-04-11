@@ -1,5 +1,5 @@
 import './VideoCard.css'
-export const VideoCard = () => {
+const VideoCard = () => {
   return (
     <>
       <section className="videoCardSection">
@@ -14,9 +14,9 @@ export const VideoCard = () => {
               <small className="videoTime">11:23</small>
             </p>
             <div className="videoCardIcon">
-              <i class="fa-regular fa-thumbs-up  videoEachIcon"></i>
-              <i class="fa-regular fa-bookmark videoEachIcon"></i>
-              <i class="fa-solid fa-folder-plus videoEachIcon"></i>
+              <i className="fa-regular fa-thumbs-up  videoEachIcon"></i>
+              <i className="fa-regular fa-bookmark videoEachIcon"></i>
+              <i className="fa-solid fa-folder-plus videoEachIcon"></i>
             </div>
           </div>
           <footer className="videoCardFooter">
@@ -37,3 +37,5 @@ export const VideoCard = () => {
     </>
   )
 }
+
+export {VideoCard}
