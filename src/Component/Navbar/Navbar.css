@@ -1,0 +1,170 @@
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0px 15px 10px -15px var(--shadow-color);
+    padding: 1rem;
+    background-color: var(--bodyBg-color);
+    color: var(--primary-color);
+    height: 6.5rem;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+.navbar_link {
+    font-weight: bold;
+}
+
+.search_bar {
+    padding: 1rem;
+    border: none;
+    width: 35rem;
+    height: 3rem;
+    text-decoration: none;
+    border-radius: var(--search-radius);
+}
+
+.search_icon {
+    background-color: white;
+    border-radius: var(--search-radius);
+    padding-right: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.nav_icon {
+    color: var(--primary-color);
+    font-size: 2.4rem;
+}
+
+.nav_btn {
+    background-color: var(--secondary-color);
+    padding: 0.5rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.nav_rightside {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    padding-right: 3rem;
+}
+
+.nav_btn:hover {
+    opacity: var(--btn-opacity);
+}
+
+.all_features,
+.new_offers_div {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background-color: var(--bg-color);
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.icon_badge {
+    display: flex;
+    justify-self: center;
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.7rem;
+    align-self: center;
+    font-weight: bolder;
+    color: white;
+    border-radius: 50%;
+    background-color: var(--alertError-color);
+}
+
+
+.wishlist_icon_home_badge {
+    position: absolute;
+    top: -0.1rem;
+    right: 5rem;
+}
+
+.cart_icon_home_badge {
+    position: absolute;
+    top: -0.1rem;
+    right: 1.5rem;
+}
+
+.textForPrimaryColor {
+    color: var(--primary-color);
+}
+
+Link {
+    cursor: pointer;
+}
+
+.productsText {
+    font-size: 2rem;
+}
+
+.hamburgerNameDiv {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card_btn{
+    border-radius: 0;
+}
+
+@media screen and (max-width: 998px) {
+    body {
+        font-size: small;
+    }
+
+    .navigation {
+        height: 8rem;
+    }
+
+    .search_bar {
+        width: 28rem;
+    }
+
+    .landing_area {
+        font-size: small;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:1030px) {
+    .search_bar {
+        width: 25rem;
+
+    }
+}
+
+@media screen and (max-width:768px) {
+    .search_bar {
+        width: 30rem;
+    }
+
+}
+
+@media screen and (max-width:555px) {
+    .search_bar {
+        width: 20rem;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width:340px) {
+    .search_bar {
+        width: 15rem;
+    }
+
+}
+
+@media (max-width:480px) {
+    .nav_rightside {
+        display: none;
+    }
+
+}
