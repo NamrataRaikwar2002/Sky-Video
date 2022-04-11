@@ -1,0 +1,65 @@
+.videoCardSection {
+    padding: 2rem;
+    /* border:1px solid red; */
+}
+
+.videoCardDiv {
+    cursor: pointer;
+    width: 28rem;
+    height: 30rem;
+    position: relative;
+}
+
+.videoCardThumbnail {
+    width: 28rem;
+    height: 20rem;
+}
+
+.videoCardIconTime {
+    display: flex;
+    align-items: center;
+    gap: 9rem;
+    padding: 1rem;
+    position: absolute;
+    top: 15rem;
+}
+
+.videoCardIcon {
+    display: flex;
+    gap: 1rem;
+}
+
+.videoEachIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    padding: 1.8rem;
+
+}
+
+.videoEachIcon:hover {
+    background-color: var(--bodyBg-color);
+    transition-duration: 0.2s;
+}
+
+.videoTime {
+    padding: 0.2rem;
+    background-color: var(--bodyBg-color);
+}
+
+.videoCardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.small_img {
+    width: 5rem;
+    height: 5rem;
+}
