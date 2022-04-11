@@ -1,0 +1,30 @@
+.drawerDiv {
+    padding: 3rem;
+    width: 25rem;
+    position: sticky;
+    top: 8rem;
+}
+
+.drawerList {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.drawerUl {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.drawerList:hover {
+    background-color: var(--primary-color);
+    padding: 1rem;
+}
+
+@media (max-width:768px) {
+    .drawerDiv {
+        display: none;
+    }
+
+}
