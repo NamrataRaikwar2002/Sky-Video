@@ -1,18 +1,20 @@
+.exploreMain {
+    display: flex;
+    flex-direction: row;
+
+}
+
 .exploreDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     color: var(--bg-color);
+    
 }
 
-.exploreMain {
-    display: flex;
-    max-width: 100%;
-}
 
 .videoCardsWithFooter {
     display: flex;
     flex-direction: column;
-
 }
