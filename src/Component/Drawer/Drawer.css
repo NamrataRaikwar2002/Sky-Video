@@ -26,9 +26,11 @@ a{
     color: white;
 }
 
-@media (max-width:768px) {
-    .drawerDiv {
-        z-index: 2;
-        display: none;
-    }
+.displayBlock{
+    display: block;
 }
+
+.displayNone{
+    display: none;
+}
+
