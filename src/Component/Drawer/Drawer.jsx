@@ -1,8 +1,8 @@
 import './Drawer.css'
 import { Link } from 'react-router-dom'
-export const Drawer = () => {
+export const Drawer = ({sideBar}) => {
   return (
-     <div className="drawerDiv page">
+     <div className={`drawerDiv page ${sideBar ? "displayBlock" : 'displayNone' }`}>
         <ul className="drawerUl">
             <Link to='/'>
           <li className="drawerList cursorPointer">
