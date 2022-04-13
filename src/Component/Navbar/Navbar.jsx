@@ -1,16 +1,21 @@
-import React from 'react'
-import './Navbar.css'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
+import { Drawer } from '../Drawer/Drawer';
 
 const Navbar = () => {
+  const [sideBar, setsideBar] = useState(true)
+
   return (
     <div className="nav_div">
       <nav className="navigation">
         <div className="hamburgerNameDiv">
-          <i className="fa-solid fa-bars nav_icon"></i>
+          <i className="fa-solid fa-bars nav_icon cursorPointer" onClick={() => setsideBar(!sideBar)}></i>
+          <Link to='/'>
           <h2 className="textForPrimaryColor">
             SkyVideo
           </h2>
+          </Link>
         </div>
         <div className="search_icon">
           <input
@@ -25,14 +30,17 @@ const Navbar = () => {
           <Link to="/" className="navbar_link textForPrimaryColor productsText">
             Explore
           </Link>
-          <button className='btn card_btn'>
-
-            login
+          <Link to='/login-page'>
+          <button className='btn card_btn btnHover'>
+            Login
           </button>
+          </Link>
           {/* will use this icon later */}
             {/* <i className="fa-solid fa-user nav_icon"></i> */}
         </aside>
       </nav>
+      {sideBar ? <Drawer /> : null}
+
     </div>
   )
 }

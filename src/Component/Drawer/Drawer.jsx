@@ -1,13 +1,15 @@
 import './Drawer.css'
+import { Link } from 'react-router-dom'
 export const Drawer = () => {
   return (
-    <>
-      <div className="drawerDiv page">
+     <div className="drawerDiv page">
         <ul className="drawerUl">
+            <Link to='/'>
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-compass"></i>
             <p>Explore</p>
           </li>
+            </Link>
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-thumbs-up"></i>
             <p>Liked</p>
@@ -30,6 +32,5 @@ export const Drawer = () => {
           </li>
         </ul>
       </div>
-    </>
   )
 }
