@@ -1,24 +1,45 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Authentication.css'
 import { Navbar } from '../../Component'
+import { AuthReducer } from '../../hooks/reducer/AuthReducer'
+import { useAuth } from '../../hooks/context/AuthContext';
 
 const Login = () => {
+  const {loginPost} = useAuth();
+  const [authState, authDispatch] = useReducer(AuthReducer, {email:'', password:'', isSubmit:false});
+  const {email, password, isSubmit} = authState;
   const [inputType, setinputType] = useState('password')
+  console.log(authState)
+
+const submitHandler = (e) => { 
+  e.preventDefault();
+  authDispatch({type:"SUBMIT"})
+  
+}
+  useEffect(() => {
+     if(isSubmit){
+       loginPost(email, password)
+     }
+  }, [isSubmit]);
+
+
   return (
     <>
       <main className="login_page">
       <Navbar />
         <section className="login_box">
-          <form>
+          <form onSubmit={(e) => submitHandler(e)}>
             <div className="login_div">
               <h2 className="createAccount">Login</h2>
               <label htmlFor="emailInput">Email address</label>
               <input
-                type="text"
+                type="email"
                 className="login_input"
                 placeholder="username"
                 id="loginInput"
+                value={email}
+                onChange={(e) => authDispatch({type:"EMAIL", payload: e.target.value})}
                 required
               />
               <label htmlFor="passwordInput">Password</label>
@@ -28,6 +49,8 @@ const Login = () => {
                   className="login_input passwordInputDiv"
                   placeholder="Password"
                   id="passwordInput"
+                  value={password}
+                  onChange={(e) => authDispatch({type:"PASSWORD", payload: e.target.value})}
                   required
                 />
                 <div
@@ -39,11 +62,11 @@ const Login = () => {
                 >
                   {inputType === 'text' ? (
                     <p className="hideIcon">
-                      <i class="fa-regular fa-eye"></i>
+                      <i className="fa-regular fa-eye"></i>
                     </p>
                   ) : (
                     <p className="hideIcon">
-                      <i class="fa-regular fa-eye-slash"></i>
+                      <i className="fa-regular fa-eye-slash"></i>
                     </p>
                   )}
                 </div>
@@ -55,7 +78,6 @@ const Login = () => {
                   name="1"
                   className="rememberme"
                   id="rememberMe"
-                  required
                 />
                 <label htmlFor="rememberMe">Remember me</label>
                 <Link to="/">

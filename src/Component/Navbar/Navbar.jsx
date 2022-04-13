@@ -2,9 +2,18 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import { Drawer } from '../Drawer/Drawer';
+import { useAuth } from '../../hooks/context/AuthContext';
 
 const Navbar = () => {
+  const {userDetail, setuserDetail} = useAuth();
+  const {token,user} = userDetail;
   const [sideBar, setsideBar] = useState(true)
+
+  const logoutHandler = () => {
+    localStorage.removeItem("skyEncodedToken")
+    localStorage.removeItem("skyUser")
+    setuserDetail({token:"", user:{}}) 
+  }
 
   return (
     <div className="nav_div">
@@ -30,16 +39,27 @@ const Navbar = () => {
           <Link to="/" className="navbar_link textForPrimaryColor productsText">
             Explore
           </Link>
+          {
+            token && user ? 
+            <>
+            <p className='profileName'>
+            <i className="fa-solid fa-user nav_icon"></i>
+           <p className="userName">
+           {user.firstName}
+           </p>
+            </p>
+            <button className='btn card_btn' onClick={logoutHandler}>Logout</button>
+            </>
+            :   
           <Link to='/login-page'>
           <button className='btn card_btn btnHover'>
             Login
           </button>
           </Link>
-          {/* will use this icon later */}
-            {/* <i className="fa-solid fa-user nav_icon"></i> */}
+          }
         </aside>
       </nav>
-      {sideBar ? <Drawer /> : null}
+      <Drawer sideBar={sideBar} /> 
 
     </div>
   )
