@@ -155,16 +155,5 @@ export const videos = [
     channelName: "Dr Perfume",
     channelProfile:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvR0dHWUvLG74m58jzWniwgBMSI3I1u4Y_6Q&usqp=CAU',
     description:'My first impressions on 4 new perfumes from the latest Intense series (2021) Body Perfumes by Wild Stone.',
-  },
-  // {
-  //   _id: "Wo5dMEP_Bb16",
-  //   title: "Hamidi Perfumes Alcohol Free | Budget Perfume in India 2022",
-  //   videoLength:'11:28',
-  //   views:'345K',
-  //   thumbnail:"	https://i.ytimg.com/vi/6dgeZFjGJ9Q/hqdefault.jpg?s…EIYAXABwAEG&rs=AOn4CLDHXrt4WnXUSRU7HvWO0g5b2aj4zg",
-  //   channelName: "Frags Talk",
-  //   channelProfile:'	https://yt3.ggpht.com/qFAYgNE4-xZ5IYDV50BqbmnRRXC0…YxOlis1w7RWJ7l4NEVLlpm-=s48-c-k-c0x00ffffff-no-rj',
-  //   description:'My first impressions on 4 new perfumes from the latest Intense series (2021) Body Perfumes by Wild Stone.',
-  // }
-  
+  }
 ];

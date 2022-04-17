@@ -5,6 +5,10 @@
   --home-footer: #1e293b;
   --infoGreen-color: #388e3c;
   --bodyBg-color: #0c0f12;
+  --modal-color: #141414;
+  --overlay-color: rgb(0, 0, 0);
+  --white-color: white;
+  --pd-2rem: 2rem;
 }
 
 html {
@@ -34,17 +38,32 @@ input {
   cursor: pointer;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-.btn{
+.btn {
   font-size: 1.5rem;
   color: white;
 }
 
-.btnHover:hover{
+.btnHover:hover {
   opacity: 0.9;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.emptyHeading {
+  color: var(--secondary-color);
+}
+
+.modalInapp{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+
 }
 
 @media screen and (max-width:1000px) {
