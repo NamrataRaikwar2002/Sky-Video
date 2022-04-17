@@ -7,6 +7,7 @@ import { AuthContextProvider } from './hooks/context/AuthContext'
 import { PlaylistContextProvider } from './hooks/context/PlaylistContext'
 import { PlaylistModalContextProvider } from './hooks/context/PlaylistModalContext'
 import { LikeVideoContextProvider } from './hooks/context/LikeVideoContext'
+import { WatchLaterCotextProvider } from './hooks/context/WatchLaterContext'
 
 // Call make Server
 makeServer()
@@ -14,15 +15,17 @@ makeServer()
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <LikeVideoContextProvider>
-      <PlaylistModalContextProvider>
-        <PlaylistContextProvider>
-          <AuthContextProvider>
-            <App />
-          </AuthContextProvider>
-        </PlaylistContextProvider>
-      </PlaylistModalContextProvider>
-      </LikeVideoContextProvider>
+      <WatchLaterCotextProvider>
+        <LikeVideoContextProvider>
+          <PlaylistModalContextProvider>
+            <PlaylistContextProvider>
+              <AuthContextProvider>
+                <App />
+              </AuthContextProvider>
+            </PlaylistContextProvider>
+          </PlaylistModalContextProvider>
+        </LikeVideoContextProvider>
+      </WatchLaterCotextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),

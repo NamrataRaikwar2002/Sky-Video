@@ -1,5 +1,4 @@
 .likedDiv{
-    border:  1px solid;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;

@@ -6,3 +6,4 @@ export {Playlist} from './Playlist/Playlist';
 export {PlaylistCard} from './PlaylistCard/PlaylistCard';
 export {PlaylistVideoCard} from './PlaylistVideoCard/PlaylistVideoCard';
 export {LikedCard} from './LikedCard/LikedCard';
+export {WatchLaterCard} from './WatchLaterCard/WatchLaterCard';
