@@ -1,0 +1,19 @@
+
+.videoCardThumbnail{
+    position: relative;
+
+}
+.trashIconOnvideo{
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+top: -14rem;
+right: -13rem;
+background-color: rgba(0, 0, 0, .7);
+width: 4rem;
+height: 4rem;
+border-radius: 50%;
+color: var(--white-color);
+
+}
