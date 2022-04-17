@@ -56,11 +56,11 @@ export const Signup = () => {
               >
                 {inputType.passwordType === 'text' ? (
                   <p className="hideIcon">
-                    <i class="fa-regular fa-eye"></i>
+                    <i className="fa-regular fa-eye"></i>
                   </p>
                 ) : (
                   <p className="hideIcon">
-                    <i class="fa-regular fa-eye-slash"></i>
+                    <i className="fa-regular fa-eye-slash"></i>
                   </p>
                 )}
 
@@ -87,11 +87,11 @@ export const Signup = () => {
                 >
                   {inputType.confirmpaswd === 'text' ? (
                     <p className="hideIcon">
-                      <i class="fa-regular fa-eye"></i>
+                      <i className="fa-regular fa-eye"></i>
                     </p>
                   ) : (
                     <p className="hideIcon">
-                      <i class="fa-regular fa-eye-slash"></i>
+                      <i className="fa-regular fa-eye-slash"></i>
                     </p>
                   )}
                 </div>

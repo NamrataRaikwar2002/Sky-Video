@@ -115,6 +115,16 @@ Link {
     border-radius: 0;
 }
 
+.profileName{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.userName{
+    color: white;
+}
+
 @media screen and (max-width: 998px) {
     body {
         font-size: small;
@@ -162,7 +172,7 @@ Link {
 
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
     .nav_rightside {
         display: none;
     }

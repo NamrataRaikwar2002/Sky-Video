@@ -68,7 +68,7 @@ export const videos = [
   },
   {
     _id: "Wo5dMEP_Bb7",
-    title: "AMAZON KA HIGHEST RATED PERFUME KHAREED LIYA *Blind Buy*",
+    title: "Amacon ka highest rated perfume *Blind Buy*",
     videoLength:'11:28',
     views:'89k',
     thumbnail:"	https://i.ytimg.com/vi/ceMCUIpq1gA/hqdefault.jpg?s…EIYAXABwAEG&rs=AOn4CLDhcQoJ5b5ECifyCLReIQ5p-xOm8Q",
