@@ -3,31 +3,32 @@ import { Link } from 'react-router-dom'
 import './Authentication.css'
 import { Navbar } from '../../Component'
 import { AuthReducer } from '../../hooks/reducer/AuthReducer'
-import { useAuth } from '../../hooks/context/AuthContext';
+import { useAuth } from '../../hooks/context/AuthContext'
 
 const Login = () => {
-  const {loginPost} = useAuth();
-  const [authState, authDispatch] = useReducer(AuthReducer, {email:'', password:'', isSubmit:false});
-  const {email, password, isSubmit} = authState;
+  const { loginPost } = useAuth()
+  const [authState, authDispatch] = useReducer(AuthReducer, {
+    email: '',
+    password: '',
+    isSubmit: false,
+  })
+  const { email, password, isSubmit } = authState
   const [inputType, setinputType] = useState('password')
-  console.log(authState)
 
-const submitHandler = (e) => { 
-  e.preventDefault();
-  authDispatch({type:"SUBMIT"})
-  
-}
+  const submitHandler = (e) => {
+    e.preventDefault()
+    authDispatch({ type: 'SUBMIT' })
+  }
   useEffect(() => {
-     if(isSubmit){
-       loginPost(email, password)
-     }
-  }, [isSubmit]);
-
+    if (isSubmit) {
+      loginPost(email, password)
+    }
+  }, [isSubmit])
 
   return (
     <>
       <main className="login_page">
-      <Navbar />
+        <Navbar />
         <section className="login_box">
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="login_div">
@@ -39,7 +40,9 @@ const submitHandler = (e) => {
                 placeholder="username"
                 id="loginInput"
                 value={email}
-                onChange={(e) => authDispatch({type:"EMAIL", payload: e.target.value})}
+                onChange={(e) =>
+                  authDispatch({ type: 'EMAIL', payload: e.target.value })
+                }
                 required
               />
               <label htmlFor="passwordInput">Password</label>
@@ -50,7 +53,9 @@ const submitHandler = (e) => {
                   placeholder="Password"
                   id="passwordInput"
                   value={password}
-                  onChange={(e) => authDispatch({type:"PASSWORD", payload: e.target.value})}
+                  onChange={(e) =>
+                    authDispatch({ type: 'PASSWORD', payload: e.target.value })
+                  }
                   required
                 />
                 <div
