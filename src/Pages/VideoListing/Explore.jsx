@@ -9,8 +9,8 @@ const Explore = () => {
     try {
       const response = await axios.get('/api/videos')
       setResponse(response.data.videos)
-    } catch (err) {
-      console.log(err)
+    } catch (error) {
+      console.error(error)
     }
   }
 

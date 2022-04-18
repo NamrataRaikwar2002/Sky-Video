@@ -62,11 +62,16 @@ button {
 .modalInapp{
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 
 }
 .mainPage{
   display: flex;
+}
+
+.historyHeadingBtn{
+  display: flex;
+  gap: 20rem;
+  justify-content: space-between;
 }
 
 @media screen and (max-width:1000px) {
