@@ -30,10 +30,12 @@ export const Drawer = ({ sideBar }) => {
           <p>Watch Later</p>
         </li>
         </NavLink>
+        <NavLink to='/history-page'>
         <li className="drawerList cursorPointer">
           <i className="fa-solid fa-clock"></i>
           <p>History</p>
         </li>
+        </NavLink>
         <li className="drawerList cursorPointer">
           <i className="fa-solid fa-right-to-bracket"></i>
           <p>Profile</p>

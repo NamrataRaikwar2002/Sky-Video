@@ -4,7 +4,7 @@ import './MyPlaylist.css'
 import { PlaylistCard } from '../../Component'
 
 export const MyPlaylist = () => {
-  const { playlistState, playlistDispatch } = usePlaylist()
+  const { playlistState  } = usePlaylist()
   const { playlists } = playlistState
 
   return (

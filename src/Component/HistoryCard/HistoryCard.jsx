@@ -1,28 +1,21 @@
-import './PlaylistVideoCard.css'
-import { usePlaylistModal } from '../../hooks/context/PlaylistModalContext'
-import { deleteVideoFromPlaylist } from '../../services/playlistsServices/deleteVideoFromPlaylist'
+import { deleteHistory } from '../../services/historyServices/deleteHistory'
 import { useAuth } from '../../hooks/context/AuthContext'
-import { usePlaylist } from '../../hooks/context/PlaylistContext'
-import { getSinglePlaylist } from '../../services/playlistsServices/getSinglePlaylist'
+import { useHistory } from '../../hooks/context/HistoryContext'
 
-const PlaylistVideoCard = ({
+const HistoryCard = ({
   _id,
   title,
   videoLength,
   thumbnail,
   channelName,
   channelProfile,
-  playlistId,
-  setplaylistVideo,
 }) => {
-  const { modalState, modalDispatch } = usePlaylistModal()
   const { userDetail } = useAuth()
   const { token } = userDetail
-  const { playlistDispatch } = usePlaylist()
+  const { historyState, historyDispatch } = useHistory()
 
-  const deleteVideoHandler = () => {
-    deleteVideoFromPlaylist(playlistId, _id, token, playlistDispatch)
-    getSinglePlaylist(token, setplaylistVideo, playlistId)
+  const deleteHistoryHandler = () => {
+    deleteHistory(_id, token, historyDispatch)
   }
   return (
     <section className="videoCardSection">
@@ -35,7 +28,7 @@ const PlaylistVideoCard = ({
           <div className="videoCardIcon">
             <i
               className="fa-solid fa-trash nav_icon trashIconOnvideo"
-              onClick={deleteVideoHandler}
+              onClick={deleteHistoryHandler}
             ></i>
           </div>
         </div>
@@ -55,4 +48,4 @@ const PlaylistVideoCard = ({
   )
 }
 
-export { PlaylistVideoCard }
+export { HistoryCard }

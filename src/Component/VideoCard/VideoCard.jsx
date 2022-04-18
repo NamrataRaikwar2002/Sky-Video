@@ -8,6 +8,9 @@ import { deleteLiked } from '../../services/likeServices/deleteLiked'
 import { addToWatchLater } from '../../services/watchLaterServices/addToWatchLater'
 import { useWatchLater } from '../../hooks/context/WatchLaterContext'
 import { deleteWatchLater } from '../../services/watchLaterServices/deleteWatchLater'
+import { addToHistory } from '../../services/historyServices/addToHistory'
+import { useHistory } from '../../hooks/context/HistoryContext'
+
 
 const VideoCard = ({
   _id,
@@ -25,6 +28,7 @@ const VideoCard = ({
   const { likes } = likeState
   const { watchLaterState, watchLaterDispatch } = useWatchLater()
   const { watchLater } = watchLaterState
+  const {historyState, historyDispatch} = useHistory();
   const navigate = useNavigate()
 
   const selectedVideo = videos.find((item) => item._id === _id)
@@ -67,11 +71,15 @@ const VideoCard = ({
   const deleteWatchLaterHandler = () => {
     deleteWatchLater(_id, token, watchLaterDispatch)
   }
+
+  const addToHistoryHandler = () => {
+    addToHistory(video, token, historyDispatch)
+  }
   return (
     <>
       <section className="videoCardSection">
         <div className="videoCardDiv" key={_id}>
-          <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" />
+          <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" onClick={addToHistoryHandler}/>
           <div className="videoCardIconTime">
             <p>
               <small className="videoTime">{videoLength}</small>

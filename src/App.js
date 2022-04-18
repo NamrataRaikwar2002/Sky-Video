@@ -6,6 +6,7 @@ import { SinglePlaylist } from './Pages/SinglePlaylist/SinglePlaylist'
 import { Playlist } from './Component'
 import { usePlaylistModal } from './hooks/context/PlaylistModalContext'
 import { LikedVideo } from './Pages/LikedVideo/LikedVideo'
+import { HistoryVideo } from './Pages/HistoryVideo/HistoryVideo'
 
 function App() {
   const { modalState } = usePlaylistModal()
@@ -25,6 +26,7 @@ function App() {
         />
         <Route path='/liked-videos-page' element={<LikedVideo />}/>
         <Route path='/watchlater-page' element={<WatchLaterVideo/>}/>
+        <Route path='/history-page' element={<HistoryVideo />}/>
       </Routes>
     </>
   )
