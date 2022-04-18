@@ -12,10 +12,12 @@ export const Drawer = ({ sideBar }) => {
             <p>Explore</p>
           </li>
         </Link>
+        <NavLink to='/liked-videos-page'>
         <li className="drawerList cursorPointer">
           <i className="fa-solid fa-thumbs-up"></i>
           <p>Liked</p>
         </li>
+        </NavLink>
         <NavLink to="/MyPlaylist-page">
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-folder-plus"></i>

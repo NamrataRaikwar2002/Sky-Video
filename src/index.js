@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthContextProvider } from './hooks/context/AuthContext'
 import { PlaylistContextProvider } from './hooks/context/PlaylistContext'
 import { PlaylistModalContextProvider } from './hooks/context/PlaylistModalContext'
+import { LikeVideoContextProvider } from './hooks/context/LikeVideoContext'
 
 // Call make Server
 makeServer()
@@ -13,6 +14,7 @@ makeServer()
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <LikeVideoContextProvider>
       <PlaylistModalContextProvider>
         <PlaylistContextProvider>
           <AuthContextProvider>
@@ -20,6 +22,7 @@ ReactDOM.render(
           </AuthContextProvider>
         </PlaylistContextProvider>
       </PlaylistModalContextProvider>
+      </LikeVideoContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),

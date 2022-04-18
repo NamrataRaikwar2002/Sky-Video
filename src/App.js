@@ -5,6 +5,7 @@ import { Explore, Login, MyPlaylist, Signup } from './Pages'
 import { SinglePlaylist } from './Pages/SinglePlaylist/SinglePlaylist'
 import { Playlist } from './Component'
 import { usePlaylistModal } from './hooks/context/PlaylistModalContext'
+import { LikedVideo } from './Pages/LikedVideo/LikedVideo'
 
 function App() {
   const { modalState } = usePlaylistModal()
@@ -22,6 +23,7 @@ function App() {
           path="/MyPlaylist-page/:playlistId"
           element={<SinglePlaylist />}
         />
+        <Route path='/liked-videos-page' element={<LikedVideo />}/>
       </Routes>
     </>
   )

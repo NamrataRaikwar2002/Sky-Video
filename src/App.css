@@ -65,6 +65,9 @@ button {
   /* align-items: center; */
 
 }
+.mainPage{
+  display: flex;
+}
 
 @media screen and (max-width:1000px) {
   html {
