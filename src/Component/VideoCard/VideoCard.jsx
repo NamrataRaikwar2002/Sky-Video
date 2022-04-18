@@ -5,6 +5,9 @@ import { usePlaylistModal } from '../../hooks/context/PlaylistModalContext'
 import { addToLike } from '../../services/likeServices/addToLike'
 import { useLikeVideoContext } from '../../hooks/context/LikeVideoContext'
 import { deleteLiked } from '../../services/likeServices/deleteLiked'
+import { addToWatchLater } from '../../services/watchLaterServices/addToWatchLater'
+import { useWatchLater } from '../../hooks/context/WatchLaterContext'
+import { deleteWatchLater } from '../../services/watchLaterServices/deleteWatchLater'
 
 const VideoCard = ({
   _id,
@@ -20,9 +23,13 @@ const VideoCard = ({
   const { token } = userDetail
   const { likeState, likeDispatch } = useLikeVideoContext()
   const { likes } = likeState
+  const { watchLaterState, watchLaterDispatch } = useWatchLater()
+  const { watchLater } = watchLaterState
   const navigate = useNavigate()
 
   const selectedVideo = videos.find((item) => item._id === _id)
+  const video = videos.find((item) => item._id === _id)
+
 
   const playlistHandler = (_id) => {
     if (token) {
@@ -43,10 +50,23 @@ const VideoCard = ({
     }
   }
 
-  const deleteVideoHandler =  () => {
+  const deleteVideoHandler = () => {
     deleteLiked(_id, token, likeDispatch)
   }
 
+  const watchLaterHandler = (_id) => {
+    if (token) {
+      const video = videos.find((item) => item._id === _id)
+      addToWatchLater(video, token, watchLaterDispatch)
+    } else {
+      navigate('/login-page')
+      alert('login first')
+    }
+  }
+  
+  const deleteWatchLaterHandler = () => {
+    deleteWatchLater(_id, token, watchLaterDispatch)
+  }
   return (
     <>
       <section className="videoCardSection">
@@ -58,15 +78,25 @@ const VideoCard = ({
             </p>
             <div className="videoCardIcon">
               {likes.some((item) => item._id === _id) ? (
-                <i className="fa-solid fa-thumbs-up  videoEachIcon" onClick={deleteVideoHandler}></i>
+                <i
+                  className="fa-solid fa-thumbs-up  videoEachIcon"
+                  onClick={deleteVideoHandler}
+                ></i>
               ) : (
                 <i
                   className="fa-regular fa-thumbs-up  videoEachIcon"
                   onClick={likeVideoHandler}
                 ></i>
               )}
-
-              <i className="fa-regular fa-bookmark videoEachIcon"></i>
+              { watchLater.some((item) => item._id === _id) ? 
+                 (
+                <i className="fa-solid fa-bookmark videoEachIcon" onClick={deleteWatchLaterHandler}></i>
+              ):(
+                <i
+                  className="fa-regular fa-bookmark videoEachIcon"
+                  onClick={() => watchLaterHandler(_id)}
+                ></i>
+              ) }
               <i
                 className="fa-solid fa-folder-plus videoEachIcon"
                 onClick={() => playlistHandler(_id)}

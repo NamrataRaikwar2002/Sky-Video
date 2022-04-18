@@ -1,7 +1,7 @@
 import './App.css'
 import MockmanEs from 'mockman-js'
 import { Routes, Route } from 'react-router-dom'
-import { Explore, Login, MyPlaylist, Signup } from './Pages'
+import { Explore, Login, MyPlaylist, Signup, WatchLaterVideo } from './Pages'
 import { SinglePlaylist } from './Pages/SinglePlaylist/SinglePlaylist'
 import { Playlist } from './Component'
 import { usePlaylistModal } from './hooks/context/PlaylistModalContext'
@@ -24,6 +24,7 @@ function App() {
           element={<SinglePlaylist />}
         />
         <Route path='/liked-videos-page' element={<LikedVideo />}/>
+        <Route path='/watchlater-page' element={<WatchLaterVideo/>}/>
       </Routes>
     </>
   )

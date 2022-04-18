@@ -6,12 +6,12 @@ export const Drawer = ({ sideBar }) => {
       className={`drawerDiv page ${sideBar ? 'displayBlock' : 'displayNone'}`}
     >
       <ul className="drawerUl">
-        <Link to="/">
+        <NavLink to="/">
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-compass"></i>
             <p>Explore</p>
           </li>
-        </Link>
+        </NavLink>
         <NavLink to='/liked-videos-page'>
         <li className="drawerList cursorPointer">
           <i className="fa-solid fa-thumbs-up"></i>
@@ -24,10 +24,12 @@ export const Drawer = ({ sideBar }) => {
             <p>Playlists</p>
           </li>
         </NavLink>
+        <NavLink to='/watchlater-page'>
         <li className="drawerList cursorPointer">
           <i className="fa-solid fa-bookmark"></i>
           <p>Watch Later</p>
         </li>
+        </NavLink>
         <li className="drawerList cursorPointer">
           <i className="fa-solid fa-clock"></i>
           <p>History</p>
