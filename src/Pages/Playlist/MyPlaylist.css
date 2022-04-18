@@ -1,0 +1,18 @@
+.mayPlaylistMain {
+    display: flex;
+}
+
+.playlistPage {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.allPlaylist{
+    display: flex;
+    gap: 2rem;
+}
+
+
+

@@ -32,6 +32,7 @@ const Navbar = () => {
             className="search_bar"
             placeholder="Search..."
             name="search"
+
           />
           <i className="fa fa-search"></i>
         </div>
@@ -42,12 +43,12 @@ const Navbar = () => {
           {
             token && user ? 
             <>
-            <p className='profileName'>
+            <div className='profileName'>
             <i className="fa-solid fa-user nav_icon"></i>
            <p className="userName">
            {user.firstName}
            </p>
-            </p>
+            </div>
             <button className='btn card_btn' onClick={logoutHandler}>Logout</button>
             </>
             :   

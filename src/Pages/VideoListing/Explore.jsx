@@ -14,7 +14,7 @@ const Explore = () => {
     }
   }
 
-  useEffect(fetchVideos, [])
+  useEffect(() => fetchVideos(), [])
 
   return (
     <>
@@ -33,11 +33,13 @@ const Explore = () => {
               return (
                 <VideoCard
                   key={_id}
+                  _id={_id}
                   title={title}
                   videoLength={videoLength}
                   thumbnail={thumbnail}
                   channelName={channelName}
                   channelProfile={channelProfile}
+                  videos={res}
                 />
               )
             },
