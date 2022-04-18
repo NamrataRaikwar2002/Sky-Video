@@ -35,7 +35,7 @@ const PlaylistVideoCard = ({
           <div className="videoCardIcon">
             <i
               className="fa-solid fa-trash nav_icon trashIconOnvideo"
-              onClick={() => deleteVideoHandler()}
+              onClick={deleteVideoHandler}
             ></i>
           </div>
         </div>

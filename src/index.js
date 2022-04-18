@@ -8,6 +8,7 @@ import { PlaylistContextProvider } from './hooks/context/PlaylistContext'
 import { PlaylistModalContextProvider } from './hooks/context/PlaylistModalContext'
 import { LikeVideoContextProvider } from './hooks/context/LikeVideoContext'
 import { WatchLaterCotextProvider } from './hooks/context/WatchLaterContext'
+import { HistoryContextProvider } from './hooks/context/HistoryContext'
 
 // Call make Server
 makeServer()
@@ -15,17 +16,19 @@ makeServer()
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <WatchLaterCotextProvider>
-        <LikeVideoContextProvider>
-          <PlaylistModalContextProvider>
-            <PlaylistContextProvider>
-              <AuthContextProvider>
-                <App />
-              </AuthContextProvider>
-            </PlaylistContextProvider>
-          </PlaylistModalContextProvider>
-        </LikeVideoContextProvider>
-      </WatchLaterCotextProvider>
+      <HistoryContextProvider>
+        <WatchLaterCotextProvider>
+          <LikeVideoContextProvider>
+            <PlaylistModalContextProvider>
+              <PlaylistContextProvider>
+                <AuthContextProvider>
+                  <App />
+                </AuthContextProvider>
+              </PlaylistContextProvider>
+            </PlaylistModalContextProvider>
+          </LikeVideoContextProvider>
+        </WatchLaterCotextProvider>
+      </HistoryContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),
