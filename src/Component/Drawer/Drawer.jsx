@@ -1,5 +1,5 @@
 import './Drawer.css'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 export const Drawer = ({ sideBar }) => {
   return (
     <div
@@ -9,36 +9,36 @@ export const Drawer = ({ sideBar }) => {
         <NavLink to="/">
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-compass"></i>
-            <p>Explore</p>
+            <p className="sideMenu">Explore</p>
           </li>
         </NavLink>
-        <NavLink to='/liked-videos-page'>
-        <li className="drawerList cursorPointer">
-          <i className="fa-solid fa-thumbs-up"></i>
-          <p>Liked</p>
-        </li>
+        <NavLink to="/liked-videos-page">
+          <li className="drawerList cursorPointer">
+            <i className="fa-solid fa-thumbs-up"></i>
+            <p className="sideMenu">Liked</p>
+          </li>
         </NavLink>
         <NavLink to="/MyPlaylist-page">
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-folder-plus"></i>
-            <p>Playlists</p>
+            <p className="sideMenu">Playlists</p>
           </li>
         </NavLink>
-        <NavLink to='/watchlater-page'>
-        <li className="drawerList cursorPointer">
-          <i className="fa-solid fa-bookmark"></i>
-          <p>Watch Later</p>
-        </li>
+        <NavLink to="/watchlater-page">
+          <li className="drawerList cursorPointer">
+            <i className="fa-solid fa-bookmark"></i>
+            <p className="sideMenu">Watch Later</p>
+          </li>
         </NavLink>
-        <NavLink to='/history-page'>
-        <li className="drawerList cursorPointer">
-          <i className="fa-solid fa-clock"></i>
-          <p>History</p>
-        </li>
+        <NavLink to="/history-page">
+          <li className="drawerList cursorPointer">
+            <i className="fa-solid fa-clock"></i>
+            <p className="sideMenu">History</p>
+          </li>
         </NavLink>
         <li className="drawerList cursorPointer">
           <i className="fa-solid fa-right-to-bracket"></i>
-          <p>Profile</p>
+          <p className="sideMenu">Profile</p>
         </li>
       </ul>
     </div>
