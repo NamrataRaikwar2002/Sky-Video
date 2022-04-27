@@ -9,10 +9,14 @@
     flex-direction: column;
 }
 
-.allPlaylist{
+.allPlaylist {
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
-
-
+.createPlaylistDiv {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
