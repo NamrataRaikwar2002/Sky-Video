@@ -10,9 +10,7 @@
     justify-content: center;
     gap: 2rem;
     color: var(--bg-color);
-    
 }
-
 
 .videoCardsWithFooter {
     display: flex;

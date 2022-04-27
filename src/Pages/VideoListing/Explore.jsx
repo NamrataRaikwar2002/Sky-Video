@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 
 const Explore = () => {
   const [res, setResponse] = useState([])
+  const [searchInput, setSearchInput] = useState('')
+  const [searchResult, setSearchResult] = useState([])
   const fetchVideos = async () => {
     try {
       const response = await axios.get('/api/videos')
@@ -16,12 +18,24 @@ const Explore = () => {
 
   useEffect(() => fetchVideos(), [])
 
+  const searchHandler = (searchInput) => {
+    setSearchInput(searchInput)
+    if (searchInput !== '') {
+      const newVideoList = res.filter((video) =>
+        video.title.toLowerCase().includes(searchInput.toLowerCase()),
+      )
+      setSearchResult(newVideoList)
+    } else {
+      setSearchResult(res)
+    }
+  }
+
   return (
     <>
       <main className="exploreMain">
-        <Navbar />
+        <Navbar searchInput={searchInput} searchHandler={searchHandler} />
         <div className="exploreDiv page">
-          {res.map(
+          {(searchInput.length < 1 ? res : searchResult).map(
             ({
               _id,
               title,
@@ -29,20 +43,18 @@ const Explore = () => {
               thumbnail,
               channelName,
               channelProfile,
-            }) => {
-              return (
-                <VideoCard
-                  key={_id}
-                  _id={_id}
-                  title={title}
-                  videoLength={videoLength}
-                  thumbnail={thumbnail}
-                  channelName={channelName}
-                  channelProfile={channelProfile}
-                  videos={res}
-                />
-              )
-            },
+            }) => (
+              <VideoCard
+                key={_id}
+                _id={_id}
+                title={title}
+                videoLength={videoLength}
+                thumbnail={thumbnail}
+                channelName={channelName}
+                channelProfile={channelProfile}
+                videos={res}
+              />
+            ),
           )}
         </div>
       </main>
