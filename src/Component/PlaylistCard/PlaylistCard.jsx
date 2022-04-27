@@ -16,31 +16,32 @@ const PlaylistCard = ({ playlists }) => {
   const deletePlaylistHandler = (playlistId) => {
     deletePlaylist(playlistId, token, playlistDispatch)
   }
- 
-const singlePlaylistHandler = (videos) => {
-    playlistDispatch({type:"VIDEO_TO_SINGLE_PLAYLIST_PAGE", payload:videos})
-    }
+
+  const singlePlaylistHandler = (videos) => {
+    playlistDispatch({ type: 'VIDEO_TO_SINGLE_PLAYLIST_PAGE', payload: videos })
+  }
 
   return (
     <>
       {playlists.map((item) => {
         return (
-          
-            <section className="mayPlaylistDiv cursorPointer" key={item.videos}>
-              <NavLink to={`/MyPlaylist-page/${item._id}`} onClick={() => singlePlaylistHandler(item.id)}>
-                <div className="playlistVideoDiv">
-                  <h2>{item.title}</h2>
-                  <p>{item.videos.length} video</p>
-                </div>
-              </NavLink>
-              <p>
-                <i
-                  className="fa-solid fa-trash nav_icon trashIcon"
-                  onClick={() => deletePlaylistHandler(item._id)}
-                ></i>
-              </p>
-            </section>
-          
+          <section className="mayPlaylistDiv cursorPointer" key={item._id}>
+            <NavLink
+              to={`/MyPlaylist-page/${item._id}`}
+              onClick={() => singlePlaylistHandler(item.id)}
+            >
+              <div className="playlistVideoDiv">
+                <h2>{item.title}</h2>
+                <p>{item.videos.length} video</p>
+              </div>
+            </NavLink>
+            <p>
+              <i
+                className="fa-solid fa-trash nav_icon trashIcon"
+                onClick={() => deletePlaylistHandler(item._id)}
+              ></i>
+            </p>
+          </section>
         )
       })}
     </>

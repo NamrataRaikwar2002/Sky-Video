@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Navbar, PlaylistCard, VideoCard } from '../../Component'
+import { Navbar,PlaylistVideoCard } from '../../Component'
 import { useAuth } from '../../hooks/context/AuthContext'
 import { getSinglePlaylist } from '../../services/playlistsServices/getSinglePlaylist'
-import { PlaylistVideoCard } from '../../Component'
 import './SinglePlaylist.css'
 import { useParams } from 'react-router'
 
@@ -24,7 +23,6 @@ const SinglePlaylist = () => {
               return (
                 <div key={item._id}>
                   <PlaylistVideoCard
-                    key={item._id}
                     playlistId={playlistId}
                     {...item}
                     setplaylistVideo={setplaylistVideo}
