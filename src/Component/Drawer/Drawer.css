@@ -1,6 +1,6 @@
 .drawerDiv {
     padding: 3rem;
-    width: 25rem;
+    width: 23rem;
     position: sticky;
     top: 8rem;
 }
@@ -22,15 +22,24 @@
     padding: 1rem;
 }
 
-a{
+a {
     color: white;
 }
 
-.displayBlock{
+.displayBlock {
     display: block;
 }
 
-.displayNone{
+.displayNone {
     display: none;
 }
 
+@media screen and (max-width:600px) {
+    .sideMenu {
+        display: none;
+    }
+    .drawerDiv{
+        display: none;
+    }
+
+}

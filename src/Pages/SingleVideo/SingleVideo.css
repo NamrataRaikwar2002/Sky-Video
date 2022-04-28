@@ -1,0 +1,65 @@
+.singleVideoMain {
+    display: flex;
+}
+
+.singleVideoPlayer {
+    display: flex;
+    width: 100%;
+    height: 40rem;
+}
+
+.videoPageInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem 20rem;
+    width: 100%;
+}
+
+.videoInfoDiv {
+    padding: 2rem 0;
+}
+
+.iconView {
+    display: flex;
+    padding: 1rem 0;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.singleVideoIcon {
+    display: flex;
+    gap: 4rem;
+    font-size: 2.5rem;
+}
+
+.channelImgName {
+    padding-top: 1rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.descriptionName {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media screen and (max-width:1024px) {
+    .videoPageInfo {
+        padding: 2rem 15rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .videoPageInfo {
+        padding: 2rem 6rem;
+    }
+}
+
+
+@media screen and (max-width:425px) {
+    .videoPageInfo {
+        padding: 2rem 1rem;
+    }
+}

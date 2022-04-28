@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { getSinglePlaylist } from './getSinglePlaylist'
 
 const addVideoToPlaylist = async (
   playlistId,
@@ -20,7 +19,6 @@ const addVideoToPlaylist = async (
         playlistData: response.data.playlist,
       },
     })
-
   } catch (error) {
     console.error(error)
   }

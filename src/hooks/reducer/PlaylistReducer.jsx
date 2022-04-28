@@ -27,8 +27,8 @@ export const PlaylistReducer = (playlistState, playlistAction) => {
         playlists: playlistAction.payload.deletedPlaylist,
       }
 
-    case "REMOVE_VIDEO_FROM_PLAYLIST":
-        return{...playlistState, playlists:playlistAction.payload}
+    case 'REMOVE_VIDEO_FROM_PLAYLIST':
+      return { ...playlistState, playlists: [playlistAction.payload] }
     default:
       return playlistState
   }
