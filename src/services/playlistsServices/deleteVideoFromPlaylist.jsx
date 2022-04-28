@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const deleteVideoFromPlaylist = async (
   playlistId,
@@ -15,6 +16,7 @@ const deleteVideoFromPlaylist = async (
       type: 'REMOVE_VIDEO_FROM_PLAYLIST',
       payload: response.data.playlist,
     })
+    toast.info('Video removed from playlist')
   } catch (error) {
     console.error(error)
   }

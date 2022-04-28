@@ -74,6 +74,7 @@ button {
   justify-content: space-between;
 }
 
+
 @media screen and (max-width:1000px) {
   html {
     font-size: 55%;

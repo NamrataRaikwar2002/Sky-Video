@@ -8,6 +8,7 @@ import { deleteLiked } from '../../services/likeServices/deleteLiked'
 import { addToWatchLater } from '../../services/watchLaterServices/addToWatchLater'
 import { useWatchLater } from '../../hooks/context/WatchLaterContext'
 import { deleteWatchLater } from '../../services/watchLaterServices/deleteWatchLater'
+import { toast } from 'react-toastify'
 
 const VideoCard = ({
   _id,
@@ -32,11 +33,10 @@ const VideoCard = ({
 
   const playlistHandler = (_id) => {
     if (token) {
-      const video = videos.find((item) => item._id === _id)
       modalDispatch({ type: 'MODAL_OPEN', payload: video })
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
@@ -45,7 +45,7 @@ const VideoCard = ({
       addToLike(selectedVideo, token, likeDispatch)
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
@@ -55,11 +55,10 @@ const VideoCard = ({
 
   const watchLaterHandler = (_id) => {
     if (token) {
-      const video = videos.find((item) => item._id === _id)
       addToWatchLater(video, token, watchLaterDispatch)
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
