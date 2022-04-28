@@ -1,6 +1,20 @@
 import './Drawer.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/context/AuthContext'
+import { toast } from 'react-toastify'
+
 export const Drawer = ({ sideBar }) => {
+  const { userDetail, setuserDetail } = useAuth()
+  const { token, user } = userDetail
+  const navigate = useNavigate()
+
+  const logoutHandler = () => {
+    localStorage.removeItem('skyEncodedToken')
+    localStorage.removeItem('skyUser')
+    setuserDetail({ token: '', user: {} })
+    navigate('/')
+    toast.success('Logout Successfully')
+  }
   return (
     <div
       className={`drawerDiv page ${sideBar ? 'displayBlock' : 'displayNone'}`}
@@ -36,10 +50,12 @@ export const Drawer = ({ sideBar }) => {
             <p className="sideMenu">History</p>
           </li>
         </NavLink>
-        <li className="drawerList cursorPointer">
-          <i className="fa-solid fa-right-to-bracket"></i>
-          <p className="sideMenu">Profile</p>
-        </li>
+        {token && user ? (
+          <li className="drawerList cursorPointer" onClick={logoutHandler}>
+            <i className="fa-solid fa-right-to-bracket"></i>
+            <p className="sideMenu">{user.firstName}</p>
+          </li>
+        ) : null}
       </ul>
     </div>
   )
