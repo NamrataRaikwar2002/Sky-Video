@@ -28,12 +28,13 @@ const Navbar = ({ searchInput, searchHandler }) => {
     <div className="nav_div">
       <nav className="navigation">
         <div className="hamburgerNameDiv">
-          {
+          {location.pathname !== '/login-page' &&
+          location.pathname !== '/signup-page' ? (
             <i
               className="fa-solid fa-bars nav_icon cursorPointer"
               onClick={() => setsideBar(!sideBar)}
             ></i>
-          }
+          ) : null}
           <Link to="/">
             <h2 className="textForPrimaryColor">SkyVideo</h2>
           </Link>
@@ -72,7 +73,10 @@ const Navbar = ({ searchInput, searchHandler }) => {
           )}
         </aside>
       </nav>
-      <Drawer sideBar={sideBar} />
+      {location.pathname !== '/login-page' &&
+      location.pathname !== '/signup-page' ? (
+        <Drawer sideBar={sideBar} />
+      ) : null}
     </div>
   )
 }
