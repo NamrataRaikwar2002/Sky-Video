@@ -59,21 +59,21 @@ button {
   color: var(--secondary-color);
 }
 
-.modalInapp{
+.modalInapp {
   display: flex;
   justify-content: center;
 
 }
-.mainPage{
+
+.mainPage {
   display: flex;
 }
 
-.historyHeadingBtn{
+.historyHeadingBtn {
   display: flex;
   gap: 20rem;
   justify-content: space-between;
 }
-
 
 @media screen and (max-width:1000px) {
   html {
