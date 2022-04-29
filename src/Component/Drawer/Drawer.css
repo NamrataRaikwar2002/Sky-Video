@@ -17,9 +17,18 @@
     flex-direction: column;
 }
 
-.drawerList:hover {
+
+.inactive:hover {
+    color: var(--primary-color);
+}
+
+.active {
     background-color: var(--primary-color);
-    padding: 1rem;
+    color: white;
+}
+
+.profileActive:hover {
+    color: var(--primary-color);
 }
 
 a {
@@ -34,12 +43,15 @@ a {
     display: none;
 }
 
+
 @media screen and (max-width:600px) {
     .sideMenu {
-        display: none;
+        visibility: hidden;
     }
-    .drawerDiv{
-        display: none;
+
+    .drawerDiv {
+        padding: 0.5rem;
+        width: 5rem;
     }
 
 }
