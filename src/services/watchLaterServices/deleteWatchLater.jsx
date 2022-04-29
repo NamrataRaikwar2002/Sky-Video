@@ -1,13 +1,19 @@
-import axios from "axios"
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-const deleteWatchLater = async (videoId,token, watchLaterDispatch) => {
-    try{
-        const response = await axios.delete(`/api/user/watchlater/${videoId}`, {headers:{authorization:token}})
-        watchLaterDispatch({type:'DELETE_WATCH_LATER', payload:response.data.watchlater})
-    }catch(error){
-        console.error(error);
-    }
-
+const deleteWatchLater = async (videoId, token, watchLaterDispatch) => {
+  try {
+    const response = await axios.delete(`/api/user/watchlater/${videoId}`, {
+      headers: { authorization: token },
+    })
+    watchLaterDispatch({
+      type: 'DELETE_WATCH_LATER',
+      payload: response.data.watchlater,
+    })
+    toast.info('Removed from watchlater')
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-export {deleteWatchLater}
+export { deleteWatchLater }

@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 import './Navbar.css'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Drawer } from '../Drawer/Drawer'
 import { useAuth } from '../../hooks/context/AuthContext'
+import { toast } from 'react-toastify'
 
 const Navbar = ({ searchInput, searchHandler }) => {
   const { userDetail, setuserDetail } = useAuth()
   const { token, user } = userDetail
   const [sideBar, setsideBar] = useState(true)
   const location = useLocation()
+  const navigate = useNavigate()
 
   const logoutHandler = () => {
-    localStorageNaNpxoveItem('skyEncodedToken')
-    localStorageNaNpxoveItem('skyUser')
+    localStorage.removeItem('skyEncodedToken')
+    localStorage.removeItem('skyUser')
     setuserDetail({ token: '', user: {} })
+    navigate('/')
+    toast.success('Logout Successfully')
   }
 
   const searchInputHandler = (e) => {

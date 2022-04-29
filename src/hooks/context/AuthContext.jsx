@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 import { usePlaylist } from './PlaylistContext'
 
 const AuthContext = createContext(null)
@@ -33,6 +34,7 @@ const AuthContextProvider = ({ children }) => {
           token: response.data.encodedToken,
           user: response.data.foundUser,
         })
+        toast.success('Login Successfully')
       }
     } catch (error) {
       console.error(error)
