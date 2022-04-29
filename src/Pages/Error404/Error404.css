@@ -1,0 +1,15 @@
+.errorImg {
+    object-fit: cover;
+    width: 50rem;
+    filter: grayscale(1)
+}
+
+.errorImgContainer {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
