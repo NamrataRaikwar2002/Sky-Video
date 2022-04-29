@@ -7,7 +7,7 @@ const WatchLaterCard = ({
 }) => {
     const {userDetail} = useAuth();
     const {token} = userDetail;
-    const {watchLaterState, watchLaterDispatch} = useWatchLater(); 
+    const {watchLaterDispatch} = useWatchLater(); 
 
     const deleteWatchLaterHandler = () =>{
         deleteWatchLater(_id, token, watchLaterDispatch)

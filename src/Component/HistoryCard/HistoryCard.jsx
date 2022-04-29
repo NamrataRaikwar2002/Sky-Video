@@ -12,7 +12,7 @@ const HistoryCard = ({
 }) => {
   const { userDetail } = useAuth()
   const { token } = userDetail
-  const { historyState, historyDispatch } = useHistory()
+  const { historyDispatch } = useHistory()
 
   const deleteHistoryHandler = () => {
     deleteHistory(_id, token, historyDispatch)
