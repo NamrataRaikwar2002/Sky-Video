@@ -66,15 +66,17 @@ export const Drawer = ({ sideBar }) => {
             <p className="sideMenu">History</p>
           </li>
         </NavLink>
-        {token && user ? (
-          <li
-            className="drawerList cursorPointer profileActive "
-            onClick={logoutHandler}
-          >
-            <i className="fa-solid fa-right-to-bracket"></i>
+        <li
+          className="drawerList cursorPointer profileActive "
+          onClick={logoutHandler}
+        >
+          <i className="fa-solid fa-right-to-bracket"></i>
+          {token && user ? (
             <p className="sideMenu">{user.firstName}</p>
-          </li>
-        ) : null}
+          ) : (
+            <p className="sideMenu">Profile</p>
+          )}
+        </li>
       </ul>
     </div>
   )
