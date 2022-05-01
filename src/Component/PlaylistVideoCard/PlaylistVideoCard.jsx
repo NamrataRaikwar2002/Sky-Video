@@ -15,7 +15,6 @@ const PlaylistVideoCard = ({
   playlistId,
   setplaylistVideo,
 }) => {
-  const { modalState, modalDispatch } = usePlaylistModal()
   const { userDetail } = useAuth()
   const { token } = userDetail
   const { playlistDispatch } = usePlaylist()

@@ -8,7 +8,7 @@ import { addVideoToPlaylist } from '../../services/playlistsServices/addVideoToP
 import { deleteVideoFromPlaylist } from '../../services/playlistsServices/deleteVideoFromPlaylist'
 import { useLocation } from 'react-router'
 
-export const Playlist = ({ _id }) => {
+export const Playlist = () => {
   const [playlistName, setplaylistName] = useState({ title: '' })
   const { modalState, modalDispatch } = usePlaylistModal()
   const { video } = modalState

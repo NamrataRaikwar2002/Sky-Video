@@ -15,47 +15,68 @@ export const Drawer = ({ sideBar }) => {
     navigate('/')
     toast.success('Logout Successfully')
   }
+
   return (
     <div
       className={`drawerDiv page ${sideBar ? 'displayBlock' : 'displayNone'}`}
     >
       <ul className="drawerUl">
-        <NavLink to="/">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+        >
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-compass"></i>
             <p className="sideMenu">Explore</p>
           </li>
         </NavLink>
-        <NavLink to="/liked-videos-page">
+        <NavLink
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          to="/liked-videos-page"
+        >
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-thumbs-up"></i>
             <p className="sideMenu">Liked</p>
           </li>
         </NavLink>
-        <NavLink to="/MyPlaylist-page">
+        <NavLink
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          to="/MyPlaylist-page"
+        >
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-folder-plus"></i>
             <p className="sideMenu">Playlists</p>
           </li>
         </NavLink>
-        <NavLink to="/watchlater-page">
+        <NavLink
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          to="/watchlater-page"
+        >
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-bookmark"></i>
             <p className="sideMenu">Watch Later</p>
           </li>
         </NavLink>
-        <NavLink to="/history-page">
+        <NavLink
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          to="/history-page"
+        >
           <li className="drawerList cursorPointer">
             <i className="fa-solid fa-clock"></i>
             <p className="sideMenu">History</p>
           </li>
         </NavLink>
-        {token && user ? (
-          <li className="drawerList cursorPointer" onClick={logoutHandler}>
-            <i className="fa-solid fa-right-to-bracket"></i>
+        <li
+          className="drawerList cursorPointer profileActive "
+          onClick={logoutHandler}
+        >
+          <i className="fa-solid fa-right-to-bracket"></i>
+          {token && user ? (
             <p className="sideMenu">{user.firstName}</p>
-          </li>
-        ) : null}
+          ) : (
+            <p className="sideMenu">Profile</p>
+          )}
+        </li>
       </ul>
     </div>
   )

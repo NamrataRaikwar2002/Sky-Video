@@ -81,7 +81,7 @@ const Login = () => {
                 <input
                   type="checkbox"
                   name="1"
-                  className="rememberme"
+                  className="checkBox cursorPointer"
                   id="rememberMe"
                 />
                 <label htmlFor="rememberMe">Remember me</label>

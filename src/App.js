@@ -2,6 +2,7 @@ import './App.css'
 import MockmanEs from 'mockman-js'
 import { Routes, Route } from 'react-router-dom'
 import {
+  Error404,
   Explore,
   Login,
   MyPlaylist,
@@ -14,6 +15,7 @@ import { Playlist } from './Component'
 import { usePlaylistModal } from './hooks/context/PlaylistModalContext'
 import { LikedVideo } from './Pages/LikedVideo/LikedVideo'
 import { HistoryVideo } from './Pages/HistoryVideo/HistoryVideo'
+import { RequiresAuth } from './RequiresAuth'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 
@@ -23,7 +25,6 @@ function App() {
   return (
     <>
       {modalStatus ? <Playlist /> : null}
-
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
@@ -41,15 +42,44 @@ function App() {
         <Route path="/" element={<Explore />} />
         <Route path="/login-page" element={<Login />} />
         <Route path="/signup-page" element={<Signup />} />
-        <Route path="/MyPlaylist-page" element={<MyPlaylist />} />
         <Route path="/explore/:videoId" element={<SingleVideo />} />
         <Route
           path="/MyPlaylist-page/:playlistId"
           element={<SinglePlaylist />}
         />
-        <Route path="/liked-videos-page" element={<LikedVideo />} />
-        <Route path="/watchlater-page" element={<WatchLaterVideo />} />
-        <Route path="/history-page" element={<HistoryVideo />} />
+        <Route
+          path="/MyPlaylist-page"
+          element={
+            <RequiresAuth>
+              <MyPlaylist />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/liked-videos-page"
+          element={
+            <RequiresAuth>
+              <LikedVideo />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/watchlater-page"
+          element={
+            <RequiresAuth>
+              <WatchLaterVideo />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/history-page"
+          element={
+            <RequiresAuth>
+              <HistoryVideo />
+            </RequiresAuth>
+          }
+        />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </>
   )

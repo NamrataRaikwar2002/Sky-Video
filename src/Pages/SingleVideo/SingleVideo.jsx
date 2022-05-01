@@ -34,7 +34,7 @@ const SingleVideo = () => {
       addToLike(video, token, likeDispatch)
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
@@ -47,7 +47,7 @@ const SingleVideo = () => {
       addToWatchLater(video, token, watchLaterDispatch)
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
@@ -60,7 +60,7 @@ const SingleVideo = () => {
       modalDispatch({ type: 'MODAL_OPEN', payload: video })
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
