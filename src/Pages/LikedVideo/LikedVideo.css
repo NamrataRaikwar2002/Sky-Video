@@ -1,5 +1,11 @@
-.likedDiv{
+.likedDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    width: 100%;
+    padding: var(--pd-2rem);
+}
+
+.pageHeading {
+    padding: var(--pd-2rem);
 }

@@ -7,6 +7,7 @@ import { usePlaylistModal } from '../../hooks/context/PlaylistModalContext'
 import { addVideoToPlaylist } from '../../services/playlistsServices/addVideoToPlaylist'
 import { deleteVideoFromPlaylist } from '../../services/playlistsServices/deleteVideoFromPlaylist'
 import { useLocation } from 'react-router'
+import { toast } from 'react-toastify'
 
 export const Playlist = () => {
   const [playlistName, setplaylistName] = useState({ title: '' })
@@ -24,9 +25,9 @@ export const Playlist = () => {
 
   const checkPlaylist = (title) => {
     if (playlists.find((item) => item.title === title)) {
-      alert('Playlist already exist')
+      toast.error('Playlist already exist')
     } else if (playlistName.title === '') {
-      alert('Please Enter Playlist Name')
+      toast.warning('Please Enter Playlist Name')
     } else {
       return true
     }

@@ -7,16 +7,21 @@
     gap: 2rem;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+    padding: var(--pd-2rem);
 }
 
 .allPlaylist {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+
 }
 
 .createPlaylistDiv {
     display: flex;
     width: 100%;
+    gap: 10rem;
+    padding: var(--pd-2rem);
     justify-content: space-between;
 }

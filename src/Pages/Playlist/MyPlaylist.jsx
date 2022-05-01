@@ -16,21 +16,25 @@ export const MyPlaylist = () => {
   return (
     <main className="mayPlaylistMain">
       <Navbar />
-      <div className="playlistPage page">
+      <section className="page">
         <div className="createPlaylistDiv">
-          <h1 className="centerText">My Playlist ({playlists.length})</h1>
+          <h1 className="centerText playlistHeader">
+            My Playlists ({playlists.length})
+          </h1>
           <button className="btn card_btn" onClick={() => playlistHandler()}>
             Create New Playlist
           </button>
         </div>
-        {playlists.length > 0 ? (
-          <div className="allPlaylist">
-            <PlaylistCard playlists={playlists} />
-          </div>
-        ) : (
-          <h1 className="emptyHeading">Start Creating Your Playlists</h1>
-        )}
-      </div>
+        <div className="playlistPage">
+          {playlists.length > 0 ? (
+            <div className="allPlaylist" key={playlists._id}>
+              <PlaylistCard playlists={playlists} />
+            </div>
+          ) : (
+            <h1 className="emptyHeading">Start Creating Your Playlists</h1>
+          )}
+        </div>
+      </section>
     </main>
   )
 }
