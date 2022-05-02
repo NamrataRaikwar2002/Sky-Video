@@ -12,7 +12,7 @@ const AuthContextProvider = ({ children }) => {
     token: localStorage.getItem('skyEncodedToken') || '',
     user: JSON.parse(localStorage.getItem('skyUser')) || {},
   })
- 
+
   const location = useLocation()
 
   const loginPost = async (email, password) => {
@@ -78,7 +78,6 @@ const AuthContextProvider = ({ children }) => {
             user: response.data.createdUser,
           })
         } catch (error) {
-          console.error(error)
           toast.error(error.response.data.errors[0])
         }
   }
