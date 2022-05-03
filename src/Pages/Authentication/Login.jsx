@@ -92,9 +92,7 @@ const Login = () => {
                   id="rememberMe"
                 />
                 <label htmlFor="rememberMe">Remember me</label>
-                <Link to="/">
                   <span>Forgot your Password?</span>
-                </Link>
               </div>
               <button className="primary_btn btn" onClick={guestLoginHandler}>
                 Guest Login
