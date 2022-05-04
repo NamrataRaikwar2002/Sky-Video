@@ -10,7 +10,8 @@ const getPlaylist = async (token, playlistDispatch) => {
       payload: response.data.playlists,
     })
   } catch (error) {
-    console.error(error)
+    toast.error(error.response.data.errors[0])
+
   }
 }
 export { getPlaylist }

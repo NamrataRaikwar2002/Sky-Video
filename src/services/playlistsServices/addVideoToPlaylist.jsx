@@ -24,7 +24,8 @@ const addVideoToPlaylist = async (
       `${video.title.slice(0, 20).trim() + '...'} Video added to playlist`,
     )
   } catch (error) {
-    console.error(error)
+    toast.error(error.response.data.errors[0])
+
   }
 }
 

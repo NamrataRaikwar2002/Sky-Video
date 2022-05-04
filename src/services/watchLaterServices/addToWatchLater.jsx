@@ -14,7 +14,8 @@ const addToWatchLater = async (video, token, watchLaterDispatch) => {
     })
     toast.info(`${video.title.slice(0, 20).trim() + '...'} added to watchlater`)
   } catch (error) {
-    console.error(error)
+    toast.error(error.response.data.errors[0])
+
   }
 }
 

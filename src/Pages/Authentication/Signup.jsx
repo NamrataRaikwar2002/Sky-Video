@@ -1,12 +1,68 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import { Navbar } from '../../Component'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/context/AuthContext'
+import { signupReducer } from '../../hooks/reducer/signupReducer'
+import { toast } from 'react-toastify'
 
 export const Signup = () => {
   const [inputType, setinputType] = useState({
     passwordType: 'password',
     confirmpaswd: 'password',
   })
+  const [signupState, signupDispatch] = useReducer(signupReducer, {
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    confirmPassword: '',
+    isSubmit: false,
+  })
+  const {
+    email,
+    password,
+    firstName,
+    lastName,
+    confirmPassword,
+    isSubmit,
+  } = signupState
+  const { signupPost } = useAuth()
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    signupDispatch({ type: 'SUBMIT' })
+  }
+
+  const checkUserDetail = () => {
+    return (
+      email !== '' &&
+      password !== '' &&
+      firstName !== '' &&
+      lastName !== '' &&
+      confirmPassword !== ''
+    )
+  }
+
+  const checkPassword = () => {
+    if (password !== confirmPassword) {
+      toast.error('The passwords entered do not match')
+    } else {
+      return true
+    }
+  }
+
+  useEffect(() => {
+    signupPost(
+      email,
+      password,
+      firstName,
+      lastName,
+      confirmPassword,
+      checkUserDetail,
+      checkPassword,
+    )
+  }, [isSubmit])
+
   return (
     <main className="login_page">
       <Navbar />
@@ -18,8 +74,17 @@ export const Signup = () => {
             <input
               type="text"
               className="login_input"
-              placeholder="Enter you first name"
+              placeholder="Enter your first name"
               id="firstNameinput"
+              value={firstName}
+              name="firstName"
+              onChange={(e) =>
+                signupDispatch({
+                  type: 'USER_DETAIL',
+                  name: e.target.name,
+                  payload: e.target.value,
+                })
+              }
               required
             />
             <label htmlFor="lastNameinput">Last Name</label>
@@ -28,14 +93,30 @@ export const Signup = () => {
               className="login_input"
               placeholder="Enter your last name"
               id="lastNameinput"
+              name="lastName"
+              onChange={(e) =>
+                signupDispatch({
+                  type: 'USER_DETAIL',
+                  name: e.target.name,
+                  payload: e.target.value,
+                })
+              }
               required
             />
             <label htmlFor="emailinput">Email address</label>
             <input
               type="email"
               className="login_input"
-              placeholder="username"
+              placeholder="Enter your Email"
               id="emailinput"
+              name="email"
+              onChange={(e) =>
+                signupDispatch({
+                  type: 'USER_DETAIL',
+                  name: e.target.name,
+                  payload: e.target.value,
+                })
+              }
               required
             />
             <label htmlFor="passwordinput">Password</label>
@@ -45,6 +126,14 @@ export const Signup = () => {
                 className="login_input passwordInputDiv"
                 placeholder="Enter Password"
                 id="passwordinput"
+                name="password"
+                onChange={(e) =>
+                  signupDispatch({
+                    type: 'USER_DETAIL',
+                    name: e.target.name,
+                    payload: e.target.value,
+                  })
+                }
                 required
               />
               <div
@@ -63,10 +152,8 @@ export const Signup = () => {
                     <i className="fa-regular fa-eye-slash"></i>
                   </p>
                 )}
-
               </div>
             </div>
-
 
             <label htmlFor="confirmPswdinput">Confirm Password</label>
             <div className="showHideDiv">
@@ -75,6 +162,14 @@ export const Signup = () => {
                 className="login_input passwordInputDiv"
                 placeholder="Reenter Password"
                 id="confirmPswdinput"
+                name="confirmPassword"
+                onChange={(e) =>
+                  signupDispatch({
+                    type: 'USER_DETAIL',
+                    name: e.target.name,
+                    payload: e.target.value,
+                  })
+                }
                 required
               />
               {
@@ -101,15 +196,18 @@ export const Signup = () => {
               <input
                 type="checkbox"
                 name="1"
-                className="rememberme"
+                className="rememberme checkBox"
                 id="rememberMe"
-                required
               />
               <label htmlFor="rememberMe">
                 I accept all Terms & Conditions
               </label>
             </div>
-            <button type="submit" className="primary_btn btn">
+            <button
+              type="submit"
+              className="primary_btn btn"
+              onClick={(e) => submitHandler(e)}
+            >
               Create New Account
             </button>
             <Link to="/login-page" className="createAccount login_signup_link">

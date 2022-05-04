@@ -25,6 +25,13 @@ const Login = () => {
     }
   }, [isSubmit])
 
+  const guestLoginHandler = () => {
+    authDispatch({
+      type: 'GUEST_LOGIN',
+      payload: { email: 'demo@gmail.com', password: 'demo' },
+    })
+  }
+
   return (
     <>
       <main className="login_page">
@@ -85,10 +92,11 @@ const Login = () => {
                   id="rememberMe"
                 />
                 <label htmlFor="rememberMe">Remember me</label>
-                <Link to="/">
                   <span>Forgot your Password?</span>
-                </Link>
               </div>
+              <button className="primary_btn btn" onClick={guestLoginHandler}>
+                Guest Login
+              </button>
               <button type="submit" className="primary_btn btn">
                 Login
               </button>

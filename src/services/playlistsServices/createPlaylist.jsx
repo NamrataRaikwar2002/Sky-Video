@@ -16,7 +16,8 @@ const createPlaylist = async (playlist, playlistDispatch, token) => {
       toast.info('Playlist Created')
     }
   } catch (error) {
-    console.error(error)
+    toast.error(error.response.data.errors[0])
+
   }
 }
 

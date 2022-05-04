@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Navbar,PlaylistVideoCard } from '../../Component'
+import { Navbar, PlaylistVideoCard } from '../../Component'
 import { useAuth } from '../../hooks/context/AuthContext'
 import { getSinglePlaylist } from '../../services/playlistsServices/getSinglePlaylist'
 import './SinglePlaylist.css'
@@ -15,24 +15,35 @@ const SinglePlaylist = () => {
 
   return (
     <>
-      <main className="singlePlaylistMain">
+      <main className="singlePlaylistMain" key={playlistId}>
         <Navbar />
-        <main className="page">
-          {playlistVideo ? (
-            playlistVideo.videos.map((item) => {
-              return (
-                <div key={item._id}>
-                  <PlaylistVideoCard
-                    playlistId={playlistId}
-                    {...item}
-                    setplaylistVideo={setplaylistVideo}
-                  />
-                </div>
-              )
-            })
-          ) : (
-            <h1 className="emptyHeading">Playlist is Empty</h1>
-          )}
+        <main className="page" key={playlistId}>
+          <div>
+            {playlistVideo ? <h1>{playlistVideo.title}</h1> : null}
+            {playlistVideo ? (
+              <p className="emptyHeading">
+                {playlistVideo.videos.length} videos
+              </p>
+            ) : null}
+            {playlistVideo ? (
+              playlistVideo.videos.map((item) => {
+                return (
+                  <>
+                    <div key={item._id}>
+                      <PlaylistVideoCard
+                        key={item._id}
+                        playlistId={playlistId}
+                        {...item}
+                        setplaylistVideo={setplaylistVideo}
+                      />
+                    </div>
+                  </>
+                )
+              })
+            ) : (
+              <h1 className="emptyHeading">Playlist is Empty</h1>
+            )}
+          </div>
         </main>
       </main>
     </>
