@@ -16,12 +16,12 @@ export const MyPlaylist = () => {
   return (
     <main className="mayPlaylistMain">
       <Navbar />
-      <section className="page">
+      <section className="page playlistSection">
         <div className="createPlaylistDiv">
           <h1 className="centerText playlistHeader">
             My Playlists ({playlists.length})
           </h1>
-          <button className="btn card_btn" onClick={() => playlistHandler()}>
+          <button className="btn card_btn createPlaylistBtn" onClick={() => playlistHandler()}>
             Create New Playlist
           </button>
         </div>

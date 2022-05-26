@@ -78,9 +78,10 @@ const SingleVideo = () => {
             height="100%"
             url={`https://www.youtube.com/embed/${video.youtubeId}`}
             controls={true}
-            onStart={addToHistoryHandler}
+            playing={true}
+            onPlay={addToHistoryHandler}
           />
-        </section>
+        </section>  
         <div className="videoInfoDiv">
           <h3>{video.title}</h3>
           <div className="videoCardIcon iconView">

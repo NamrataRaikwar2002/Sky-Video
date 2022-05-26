@@ -1,3 +1,9 @@
-.singlePlaylistMain{
+.singlePlaylistMain {
     display: flex;
+}
+
+.playlistPageDiv {
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--pd-2rem);
 }

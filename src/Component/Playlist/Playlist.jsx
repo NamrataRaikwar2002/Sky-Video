@@ -56,7 +56,6 @@ export const Playlist = () => {
 
   const videoInPlaylistHandler = (e, _id, video) => {
     const checkVideo = e.target.checked
-    modalDispatch({ type: 'MODAL_CLOSE' })
     if (checkVideo) {
       addVideoToPlaylist(_id, video, token, playlistDispatch)
     } else {
