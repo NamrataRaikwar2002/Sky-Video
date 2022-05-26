@@ -20,7 +20,11 @@ export const Playlist = () => {
   const location = useLocation()
 
   const playlistInputHandler = (e) => {
-    setplaylistName({ ...playlistName, title: e.target.value })
+    if (e.target.value === ' ') {
+      toast.error("Playlist name can't start with space.")
+    } else {
+      setplaylistName({ ...playlistName, title: e.target.value })
+    }
   }
 
   const checkPlaylist = (title) => {
