@@ -1,6 +1,7 @@
 import { deleteHistory } from '../../services/historyServices/deleteHistory'
 import { useAuth } from '../../hooks/context/AuthContext'
 import { useHistory } from '../../hooks/context/HistoryContext'
+import {useNavigate} from 'react-router-dom';
 
 const HistoryCard = ({
   _id,
@@ -13,12 +14,13 @@ const HistoryCard = ({
   const { userDetail } = useAuth()
   const { token } = userDetail
   const { historyDispatch } = useHistory()
+  const navigate = useNavigate();
 
   const deleteHistoryHandler = () => {
     deleteHistory(_id, token, historyDispatch)
   }
   return (
-    <section className="videoCardSection">
+    <section className="videoCardSection" onClick={() => navigate(`/explore/${_id}`)}>
       <div className="videoCardDiv" key={_id}>
         <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" />
         <div className="videoCardIconTime">

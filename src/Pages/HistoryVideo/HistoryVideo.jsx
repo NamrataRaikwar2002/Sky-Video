@@ -19,13 +19,16 @@ const HistoryVideo = () => {
   return (
     <main className="mainPage">
       <Navbar />
-      <div className="page">
+      <div className="page playlistSection">
         <div className="historyHeadingBtn">
           <h1 className="pageHeading">History</h1>
           {history.length > 0 ? (
             <div className='pageHeading'>
-            <button className="btn card_btn" onClick={clearHistoryHandler}>
-              Clear All
+            <button className="btn card_btn clearAllBtn" onClick={clearHistoryHandler}>
+              Clear All 
+            <i
+              className="fa-solid fa-trash"
+            ></i>
             </button>
             </div>
           ) : null}

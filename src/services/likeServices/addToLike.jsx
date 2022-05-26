@@ -9,7 +9,6 @@ const addToLike = async (video, token, likeDispatch) => {
       { headers: { authorization: token } },
     )
     likeDispatch({ type: 'LIKED_VIDEO', payload: response.data.likes })
-    toast.info(`${video.title.slice(0, 20).trim() + '...'} added to likes`)
   } catch (error) {
     toast.error(error.response.data.errors[0])
   }

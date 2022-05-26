@@ -10,7 +10,6 @@ const deleteWatchLater = async (videoId, token, watchLaterDispatch) => {
       type: 'DELETE_WATCH_LATER',
       payload: response.data.watchlater,
     })
-    toast.info('Removed from watchlater')
   } catch (error) {
     console.error(error)
   }

@@ -192,17 +192,6 @@ export const Signup = () => {
                 </div>
               }
             </div>
-            <div className="forgot_password_div">
-              <input
-                type="checkbox"
-                name="1"
-                className="rememberme checkBox"
-                id="rememberMe"
-              />
-              <label htmlFor="rememberMe">
-                I accept all Terms & Conditions
-              </label>
-            </div>
             <button
               type="submit"
               className="primary_btn btn"
