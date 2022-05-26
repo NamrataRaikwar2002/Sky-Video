@@ -1,9 +1,9 @@
 import './PlaylistVideoCard.css'
-import { usePlaylistModal } from '../../hooks/context/PlaylistModalContext'
 import { deleteVideoFromPlaylist } from '../../services/playlistsServices/deleteVideoFromPlaylist'
 import { useAuth } from '../../hooks/context/AuthContext'
 import { usePlaylist } from '../../hooks/context/PlaylistContext'
 import { getSinglePlaylist } from '../../services/playlistsServices/getSinglePlaylist'
+import {useNavigate} from 'react-router-dom';
 
 const PlaylistVideoCard = ({
   _id,
@@ -15,20 +15,20 @@ const PlaylistVideoCard = ({
   playlistId,
   setplaylistVideo,
 }) => {
-  const { modalState, modalDispatch } = usePlaylistModal()
   const { userDetail } = useAuth()
   const { token } = userDetail
   const { playlistDispatch } = usePlaylist()
+  const navigate = useNavigate();
 
   const deleteVideoHandler = () => {
     deleteVideoFromPlaylist(playlistId, _id, token, playlistDispatch)
     getSinglePlaylist(token, setplaylistVideo, playlistId)
   }
   return (
-    <section className="videoCardSection">
-      <div className="videoCardDiv" key={_id}>
+    <section className="videoCardSection" onClick={() => navigate(`/explore/${_id}`)}  key={_id}>
+      <div className="videoCardDiv">
         <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" />
-        <div className="videoCardIconTime">
+        <div className="videoCardIconTime"> 
           <p>
             <small className="videoTime">{videoLength}</small>
           </p>

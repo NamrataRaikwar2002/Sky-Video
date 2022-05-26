@@ -35,13 +35,13 @@
     text-decoration: underline;
 }
 
-.showHideDiv{
+.showHideDiv {
     border: 1px solid var(--secondary-color);
     display: flex;
     justify-content: space-between;
 }
 
-.hideIcon{
+.hideIcon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,12 +49,11 @@
     cursor: pointer;
 }
 
-.passwordInputDiv{
+.passwordInputDiv {
     border: none;
 }
 
-.login_page{
+.login_page {
     display: flex;
-    /* justify-content: center; */
-    /* border: 1px solid; */
 }
+

@@ -1,6 +1,7 @@
 import { useAuth } from "../../hooks/context/AuthContext"
 import { useLikeVideoContext } from "../../hooks/context/LikeVideoContext";
 import { deleteLiked } from "../../services/likeServices/deleteLiked";
+import {useNavigate} from 'react-router-dom';
 
 const LikedCard = ({
     _id,
@@ -13,13 +14,14 @@ const LikedCard = ({
     const {userDetail} = useAuth();
     const {token} = userDetail;
     const {likeDispatch} = useLikeVideoContext();
+    const navigate = useNavigate();
 
     const unlikeHandler = () => {
         deleteLiked(_id, token,likeDispatch)
     }
 
   return (
-    <section className="videoCardSection">
+    <section className="videoCardSection" onClick={() => navigate(`/explore/${_id}`)}>
       <div className="videoCardDiv" key={_id}>
         <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" />
         <div className="videoCardIconTime">

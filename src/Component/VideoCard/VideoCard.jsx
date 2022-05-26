@@ -8,9 +8,7 @@ import { deleteLiked } from '../../services/likeServices/deleteLiked'
 import { addToWatchLater } from '../../services/watchLaterServices/addToWatchLater'
 import { useWatchLater } from '../../hooks/context/WatchLaterContext'
 import { deleteWatchLater } from '../../services/watchLaterServices/deleteWatchLater'
-import { addToHistory } from '../../services/historyServices/addToHistory'
-import { useHistory } from '../../hooks/context/HistoryContext'
-
+import { toast } from 'react-toastify'
 
 const VideoCard = ({
   _id,
@@ -21,27 +19,24 @@ const VideoCard = ({
   channelProfile,
   videos,
 }) => {
-  const { modalState, modalDispatch } = usePlaylistModal()
+  const { modalDispatch } = usePlaylistModal()
   const { userDetail } = useAuth()
   const { token } = userDetail
   const { likeState, likeDispatch } = useLikeVideoContext()
   const { likes } = likeState
   const { watchLaterState, watchLaterDispatch } = useWatchLater()
   const { watchLater } = watchLaterState
-  const {historyState, historyDispatch} = useHistory();
   const navigate = useNavigate()
 
   const selectedVideo = videos.find((item) => item._id === _id)
   const video = videos.find((item) => item._id === _id)
 
-
   const playlistHandler = (_id) => {
     if (token) {
-      const video = videos.find((item) => item._id === _id)
       modalDispatch({ type: 'MODAL_OPEN', payload: video })
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
@@ -50,7 +45,7 @@ const VideoCard = ({
       addToLike(selectedVideo, token, likeDispatch)
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
 
@@ -60,26 +55,27 @@ const VideoCard = ({
 
   const watchLaterHandler = (_id) => {
     if (token) {
-      const video = videos.find((item) => item._id === _id)
       addToWatchLater(video, token, watchLaterDispatch)
     } else {
       navigate('/login-page')
-      alert('login first')
+      toast.warning('Please login to use these features!')
     }
   }
-  
+
   const deleteWatchLaterHandler = () => {
     deleteWatchLater(_id, token, watchLaterDispatch)
   }
 
-  const addToHistoryHandler = () => {
-    addToHistory(video, token, historyDispatch)
-  }
   return (
     <>
       <section className="videoCardSection">
         <div className="videoCardDiv" key={_id}>
-          <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" onClick={addToHistoryHandler}/>
+          <img
+            src={thumbnail}
+            alt="thumbnail"
+            className="videoCardThumbnail"
+            onClick={() => navigate(`/explore/${_id}`)}
+          />
           <div className="videoCardIconTime">
             <p>
               <small className="videoTime">{videoLength}</small>
@@ -96,15 +92,17 @@ const VideoCard = ({
                   onClick={likeVideoHandler}
                 ></i>
               )}
-              { watchLater.some((item) => item._id === _id) ? 
-                 (
-                <i className="fa-solid fa-bookmark videoEachIcon" onClick={deleteWatchLaterHandler}></i>
-              ):(
+              {watchLater.some((item) => item._id === _id) ? (
+                <i
+                  className="fa-solid fa-bookmark videoEachIcon"
+                  onClick={deleteWatchLaterHandler}
+                ></i>
+              ) : (
                 <i
                   className="fa-regular fa-bookmark videoEachIcon"
                   onClick={() => watchLaterHandler(_id)}
                 ></i>
-              ) }
+              )}
               <i
                 className="fa-solid fa-folder-plus videoEachIcon"
                 onClick={() => playlistHandler(_id)}
@@ -115,7 +113,7 @@ const VideoCard = ({
             <img
               src={channelProfile}
               className="avatar_img small_img"
-              alt="channe l profile"
+              alt="channel profile"
             />
             <div>
               <p>{title}</p>

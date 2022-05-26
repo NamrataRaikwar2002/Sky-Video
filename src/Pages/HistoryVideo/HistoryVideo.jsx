@@ -19,20 +19,27 @@ const HistoryVideo = () => {
   return (
     <main className="mainPage">
       <Navbar />
-      <div className="page">
+      <div className="page playlistSection">
         <div className="historyHeadingBtn">
-          <h1>History</h1>
+          <h1 className="pageHeading">History</h1>
           {history.length > 0 ? (
-            <button className="btn card_btn" onClick={clearHistoryHandler}>
-              Clear All
+            <div className='pageHeading'>
+            <button className="btn card_btn clearAllBtn" onClick={clearHistoryHandler}>
+              Clear All 
+            <i
+              className="fa-solid fa-trash"
+            ></i>
             </button>
+            </div>
           ) : null}
         </div>
-        {history
-          ? history.map((item) => {
-              return <HistoryCard key={item._id} {...item} />
-            })
-          : null}
+        <section className='pageDiv'>
+          {history.length!==0 ?
+            history.map((item) => {
+                return <HistoryCard key={item._id} {...item} />
+              })
+            : <h1 className="emptyHeading">No Videos</h1>}
+        </section>
       </div>
     </main>
   )

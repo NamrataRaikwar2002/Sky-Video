@@ -1,6 +1,6 @@
 .drawerDiv {
     padding: 3rem;
-    width: 25rem;
+    width: 23rem;
     position: sticky;
     top: 8rem;
 }
@@ -17,20 +17,41 @@
     flex-direction: column;
 }
 
-.drawerList:hover {
-    background-color: var(--primary-color);
-    padding: 1rem;
+
+.inactive:hover {
+    color: var(--primary-color);
 }
 
-a{
+.active {
+    background-color: var(--primary-color);
     color: white;
 }
 
-.displayBlock{
+.profileActive:hover {
+    color: var(--primary-color);
+}
+
+a {
+    color: white;
+}
+
+.displayBlock {
     display: block;
 }
 
-.displayNone{
+.displayNone {
     display: none;
 }
 
+
+@media screen and (max-width:600px) {
+    .sideMenu {
+        visibility: hidden;
+    }
+
+    .drawerDiv {
+        padding: 0.5rem;
+        width: 5rem;
+    }
+
+}

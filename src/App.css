@@ -59,20 +59,44 @@ button {
   color: var(--secondary-color);
 }
 
-.modalInapp{
+.modalInapp {
   display: flex;
   justify-content: center;
 
 }
-.mainPage{
+
+.mainPage {
   display: flex;
 }
 
-.historyHeadingBtn{
+.historyHeadingBtn {
   display: flex;
   gap: 20rem;
   justify-content: space-between;
 }
+
+.checkBox {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.pageHeading {
+  padding: var(--pd-2rem);
+}
+
+.pageDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  padding: var(--pd-2rem);
+}
+
+.clearAllBtn {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+} 
 
 @media screen and (max-width:1000px) {
   html {

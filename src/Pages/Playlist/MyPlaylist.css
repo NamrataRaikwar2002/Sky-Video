@@ -5,14 +5,32 @@
 .playlistPage {
     display: flex;
     gap: 2rem;
-    align-items: center;
     flex-direction: column;
+    width: 100%;
+    padding: var(--pd-2rem);
 }
 
-.allPlaylist{
+.allPlaylist {
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
+
 }
 
+.createPlaylistDiv {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    gap: 10rem;
+    padding: var(--pd-2rem);
+    justify-content: space-between;
+}
 
+.playlistSection {
+    width: 100%;
+}
 
+.createPlaylistBtn {
+    width: fit-content;
+    padding: 0.8rem;
+}

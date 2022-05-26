@@ -1,19 +1,21 @@
 import { deleteWatchLater } from "../../services/watchLaterServices/deleteWatchLater"
 import { useAuth } from "../../hooks/context/AuthContext"
 import { useWatchLater } from "../../hooks/context/WatchLaterContext";
+import {useNavigate} from 'react-router-dom';
 
 const WatchLaterCard = ({
   item: { _id, title, videoLength, thumbnail, channelName, channelProfile },
 }) => {
     const {userDetail} = useAuth();
     const {token} = userDetail;
-    const {watchLaterState, watchLaterDispatch} = useWatchLater(); 
+    const {watchLaterDispatch} = useWatchLater(); 
+    const navigate = useNavigate();
 
     const deleteWatchLaterHandler = () =>{
         deleteWatchLater(_id, token, watchLaterDispatch)
     }
   return (
-    <section className="videoCardSection">
+    <section className="videoCardSection" onClick={() => navigate(`/explore/${_id}`)}>
       <div className="videoCardDiv" key={_id}>
         <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" />
         <div className="videoCardIconTime">

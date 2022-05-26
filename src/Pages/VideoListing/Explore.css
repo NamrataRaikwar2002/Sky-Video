@@ -1,7 +1,7 @@
 .exploreMain {
     display: flex;
-    flex-direction: row;
-
+    min-height: 100vh;
+    z-index: 1;
 }
 
 .exploreDiv {
@@ -10,9 +10,7 @@
     justify-content: center;
     gap: 2rem;
     color: var(--bg-color);
-    
 }
-
 
 .videoCardsWithFooter {
     display: flex;

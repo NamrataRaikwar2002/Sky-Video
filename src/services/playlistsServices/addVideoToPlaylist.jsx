@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getSinglePlaylist } from './getSinglePlaylist'
+import { toast } from 'react-toastify'
 
 const addVideoToPlaylist = async (
   playlistId,
@@ -20,9 +20,12 @@ const addVideoToPlaylist = async (
         playlistData: response.data.playlist,
       },
     })
-
+    toast.info(
+      `${video.title.slice(0, 20).trim() + '...'} Video added to playlist`,
+    )
   } catch (error) {
-    console.error(error)
+    toast.error(error.response.data.errors[0])
+
   }
 }
 

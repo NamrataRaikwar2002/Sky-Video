@@ -25,6 +25,13 @@ const Login = () => {
     }
   }, [isSubmit])
 
+  const guestLoginHandler = () => {
+    authDispatch({
+      type: 'GUEST_LOGIN',
+      payload: { email: 'demo@gmail.com', password: 'demo123' },
+    })
+  }
+
   return (
     <>
       <main className="login_page">
@@ -40,6 +47,7 @@ const Login = () => {
                 placeholder="username"
                 id="loginInput"
                 value={email}
+                autocomplete="off"
                 onChange={(e) =>
                   authDispatch({ type: 'EMAIL', payload: e.target.value })
                 }
@@ -53,6 +61,7 @@ const Login = () => {
                   placeholder="Password"
                   id="passwordInput"
                   value={password}
+                  autocomplete="off"
                   onChange={(e) =>
                     authDispatch({ type: 'PASSWORD', payload: e.target.value })
                   }
@@ -76,19 +85,9 @@ const Login = () => {
                   )}
                 </div>
               </div>
-
-              <div className="forgot_password_div">
-                <input
-                  type="checkbox"
-                  name="1"
-                  className="rememberme"
-                  id="rememberMe"
-                />
-                <label htmlFor="rememberMe">Remember me</label>
-                <Link to="/">
-                  <span>Forgot your Password?</span>
-                </Link>
-              </div>
+              <button className="primary_btn btn" onClick={guestLoginHandler}>
+                Guest Login
+              </button>
               <button type="submit" className="primary_btn btn">
                 Login
               </button>
