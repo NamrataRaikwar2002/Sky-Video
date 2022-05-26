@@ -66,17 +66,23 @@ export const Drawer = ({ sideBar }) => {
             <p className="sideMenu">History</p>
           </li>
         </NavLink>
-        <li
-          className="drawerList cursorPointer profileActive "
-          onClick={logoutHandler}
-        >
-          <i className="fa-solid fa-right-to-bracket"></i>
-          {token && user ? (
+        {token && user ? (
+          <li
+            onClick={logoutHandler}
+            className="drawerList cursorPointer profileActive"
+          >
+            <i className="fa-solid fa-right-from-bracket"></i>
             <p className="sideMenu">{user.firstName}</p>
-          ) : (
+          </li>
+        ) : (
+          <li
+            onClick={() => navigate('/login-page')}
+            className="drawerList cursorPointer profileActive"
+          >
+            <i className="fa-solid fa-right-to-bracket"></i>
             <p className="sideMenu">Profile</p>
-          )}
-        </li>
+          </li>
+        )}
       </ul>
     </div>
   )

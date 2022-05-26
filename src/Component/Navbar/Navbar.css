@@ -106,7 +106,7 @@ Link {
 
 .hamburgerNameDiv {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
     padding: 1rem;
 }
@@ -156,6 +156,19 @@ Link {
         width: 30rem;
     }
 
+}
+
+@media screen and (min-width:600px) {
+    .hamburgerIcon {
+        visibility: hidden;
+    }
+
+    .hamburgerNameDiv {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+    }
 }
 
 @media screen and (max-width:555px) {

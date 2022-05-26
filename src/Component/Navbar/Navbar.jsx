@@ -31,7 +31,7 @@ const Navbar = ({ searchInput, searchHandler }) => {
           {location.pathname !== '/login-page' &&
           location.pathname !== '/signup-page' ? (
             <i
-              className="fa-solid fa-bars nav_icon cursorPointer"
+              className="fa-solid fa-bars nav_icon cursorPointer hamburgerIcon"
               onClick={() => setsideBar(!sideBar)}
             ></i>
           ) : null}
@@ -58,10 +58,6 @@ const Navbar = ({ searchInput, searchHandler }) => {
           </Link>
           {token && user ? (
             <>
-              <div className="profileName">
-                <i className="fa-solid fa-user nav_icon"></i>
-                <p className="userName">{user.firstName}</p>
-              </div>
               <button className="btn card_btn" onClick={logoutHandler}>
                 Logout
               </button>

@@ -84,13 +84,19 @@ button {
   padding: var(--pd-2rem);
 }
 
-.pageDiv{
+.pageDiv {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
   padding: var(--pd-2rem);
 }
+
+.clearAllBtn {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+} 
 
 @media screen and (max-width:1000px) {
   html {
