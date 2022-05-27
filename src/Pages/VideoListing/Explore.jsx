@@ -21,8 +21,6 @@ const Explore = () => {
   }
 
   useEffect(() => fetchVideos(), [])
-  console.log(searchResult, 'as', res)
-
   useEffect(() => {
     searchHandler(searchInput)
   }, [res])
