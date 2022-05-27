@@ -7,7 +7,7 @@ import './loader.css'
 const Explore = () => {
   const [res, setResponse] = useState([])
   const [searchInput, setSearchInput] = useState('')
-  const [searchResult, setSearchResult] = useState([])
+  const [searchResult, setSearchResult] = useState(res)
   const [loader, setLoader] = useState(false)
   const fetchVideos = async () => {
     try {
@@ -21,6 +21,11 @@ const Explore = () => {
   }
 
   useEffect(() => fetchVideos(), [])
+  console.log(searchResult, 'as', res)
+
+  useEffect(() => {
+    searchHandler(searchInput)
+  }, [res])
 
   const searchHandler = (searchInput) => {
     setSearchInput(searchInput)
@@ -42,11 +47,8 @@ const Explore = () => {
           <div className="exploreDiv page">
             {loader ? (
               <div className="loader"></div>
-            ) : (
-              (searchInput.length < 1
-                ? res
-                : searchResult
-              ).map(
+            ) : searchResult.length > 0 ? (
+              searchResult.map(
                 ({
                   _id,
                   title,
@@ -67,6 +69,10 @@ const Explore = () => {
                   />
                 ),
               )
+            ) : (
+              <h1 className="emptyHeading searchNotfoundMsg">
+                Do not match any result!
+              </h1>
             )}
           </div>
         </main>

@@ -21,9 +21,9 @@ const LikedCard = ({
     }
 
   return (
-    <section className="videoCardSection" onClick={() => navigate(`/explore/${_id}`)}>
+    <section className="videoCardSection" >
       <div className="videoCardDiv" key={_id}>
-        <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" />
+        <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" onClick={() => navigate(`/explore/${_id}`)}/>
         <div className="videoCardIconTime">
           <p>
             <small className="videoTime">{videoLength}</small>
