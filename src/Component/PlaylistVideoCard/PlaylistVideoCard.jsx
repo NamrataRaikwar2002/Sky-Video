@@ -25,9 +25,9 @@ const PlaylistVideoCard = ({
     getSinglePlaylist(token, setplaylistVideo, playlistId)
   }
   return (
-    <section className="videoCardSection" onClick={() => navigate(`/explore/${_id}`)}  key={_id}>
+    <section className="videoCardSection" >
       <div className="videoCardDiv">
-        <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" />
+        <img src={thumbnail} alt="thumbnail" className="videoCardThumbnail" onClick={() => navigate(`/explore/${_id}`)}  key={_id}/>
         <div className="videoCardIconTime"> 
           <p>
             <small className="videoTime">{videoLength}</small>
